@@ -8,11 +8,11 @@ import {
   Button,
   Container,
   IconButton,
+  LinearProgress,
   Paper,
   Typography,
   useMediaQuery,
   useTheme,
-  CircularProgress,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { setIpData } from 'store/ipDataSlice';
@@ -32,6 +32,7 @@ function Home() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const onDrop = useCallback(acceptedFile => {
     const fileSizeInMB = acceptedFile[0].size / (1024 * 1024);
@@ -68,6 +69,11 @@ function Home() {
 
       const ipInfoData = [];
       setLoading(true);
+      setProgress(0);
+
+      const totalIps = Object.keys(ipCount).length;
+      let completedIps = 0;
+
       for (const ip of Object.keys(ipCount)) {
         const data = await fetchIpInfo(ip);
         if (data) {
@@ -80,6 +86,8 @@ function Home() {
             loc: data.loc,
           });
         }
+        completedIps += 1;
+        setProgress((completedIps / totalIps) * 100);
       }
       setIpData(ipInfoData);
       dispatch(setIpData(ipInfoData));
@@ -202,9 +210,14 @@ function Home() {
         {/* ローディング */}
         {loading && (
           <>
-            <CircularProgress sx={{ mt: '30px' }} />
+            {/* プログレスバー */}
+            <LinearProgress
+              variant="determinate"
+              value={progress}
+              sx={{ mt: '30px', width: '50%' }}
+            />
             <Typography variant='body1' color='text.secondary' sx={{ mt: '20px' }}>
-              ヒートマップを作成しています...
+              ヒートマップを作成しています...  ({Math.round(progress)}%)
             </Typography>
           </>
         )}
