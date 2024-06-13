@@ -107,9 +107,23 @@ function Home() {
         }}
       >
         {/* サイトの説明 */}
-        <Typography variant='h6' color='text.primary' fontWeight='bold' sx={{ mt: '40px' }}>
-          アクセスログからIPアドレスを抽出し，アクセス元をヒートマップで可視化するツール
-        </Typography>
+        { isMobile ?
+          <>
+            <Typography
+              variant='h6'
+              color='text.primary'
+              fontWeight='bold'
+              sx={{ textAlign: 'center', mt: '40px' }}
+            >
+              アクセスログからアクセス元を<br />
+              ヒートマップで可視化するツール
+            </Typography>
+          </> : <>
+          <Typography variant='h6' color='text.primary' fontWeight='bold' sx={{ mt: '40px' }}>
+              アクセスログからアクセス元をヒートマップで可視化するツール
+            </Typography>
+          </>
+        }
 
         {/* ドラッグ&ドロップゾーン */}
         <Paper
