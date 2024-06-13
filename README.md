@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+## 使用技術一覧
+### 言語系
+<p style="display: inline">
+  <img src="https://img.shields.io/badge/HTML-555555.svg?logo=html5&style=for-the-badge">
+  <img src="https://img.shields.io/badge/CSS-555555.svg?logo=css3&style=for-the-badge">
+  <img src="https://img.shields.io/badge/JavaScript-555555.svg?logo=javascript&style=for-the-badge">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### ライブラリ・フレームワーク
+<p style="display: inline">
+  <img src="https://img.shields.io/badge/React-555555.svg?logo=react&style=for-the-badge">
+  <img src="https://img.shields.io/badge/MUI-555555.svg?logo=mui&style=for-the-badge">
+  <img src="https://img.shields.io/badge/Leaflet-555555.svg?logo=leaflet&style=for-the-badge">
+</p>
 
-## Available Scripts
+### API
+<img src="https://img.shields.io/badge/Ipinfo-555555.svg?logo={}&style=for-the-badge">
 
-In the project directory, you can run:
 
-### `npm start`
+## 目次
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. [プロジェクトの概要](#プロジェクトの概要)
+2. [環境](#環境)
+3. [ディレクトリ構成](#ディレクトリ構成)
+4. [事前準備](#事前準備)
+5. [環境開発構築](#環境開発構築)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## プロジェクトの概要
+### プロジェクト名
+ALTMAP (Access Log To heatMAP)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### プロジェクトについて
+アクセスログからIPアドレスを抽出し，アクセス元をヒートマップで可視化するツール
 
-### `npm run build`
+### プロジェクトのデモ画像
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 環境
+| 言語・フレームワーク  | バージョン |
+| --------------------- | ---------- |
+| Node.js               | 21.1.0     |
+| React                 | 18.3.1     |
+| MUI                   | 5.15.19    |
+| Leaflet               | 1.9.4      |
 
-### `npm run eject`
+その他のパッケージのバージョンは package.json を参照してください
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ディレクトリ構成
+<pre>
+.
+├── .env.local
+├── .gitignore
+├── README.md
+├── jsconfig.json
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── App.jsx
+    ├── App.test.js
+    ├── api
+    ├── assets
+    ├── index.js
+    ├── layout
+    ├── pages
+    ├── reportWebVitals.js
+    ├── setupTests.js
+    ├── store
+    ├── theme
+    └── utils
+</pre>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 事前準備
+本プロジェクトでは，IPアドレスの情報を取得するために，IPinfo のAPIを使用しています
+このAPIを使用するには，アクセストークンを取得する必要があるため，[IPinfo公式サイト](https://ipinfo.io/)で取得してください
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 開発環境構築
+1. Githubから本リポジトリをクローン
+```
+git clone https://github.com/Tomee0818/ALTMAP.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. パッケージのインストール
+```
+npm install
+```
 
-### Code Splitting
+3. .envファイルの作成
+```
+cp .env.local.sample .env.local
+```
+この`.env.local`ファイル内の`REACT_APP_ACCESS_TOKEN`に[IPinfoの公式サイト](https://ipinfo.io/)で取得したアクセストークンを記入
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. プロジェクトを実行
+```
+npm run start
+```
