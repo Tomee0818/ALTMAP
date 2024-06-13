@@ -34,7 +34,7 @@ ALTMAP (Access Log To heatMAP)
 アクセスログからIPアドレスを抽出し，アクセス元をヒートマップで可視化するツール
 
 ### プロジェクトのデモ画像
-
+<img width="1470" alt="demo" src="https://github.com/Tomee0818/ALTMAP/assets/107944091/7587eb24-403a-45ec-84ae-cc8687442c37">
 
 
 ## 環境
