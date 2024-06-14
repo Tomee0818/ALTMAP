@@ -31,7 +31,7 @@
 ALTMAP (Access Log To heatMAP)
 
 ### プロジェクトについて
-アクセスログからIPアドレスを抽出し，アクセス元をヒートマップで可視化するツール
+アクセスログからIPアドレスを抽出し，アクセス元をヒートマップで可視化するツール．
 
 ### プロジェクトのデモ画像
 <img width="1470" alt="demo" src="https://github.com/Tomee0818/ALTMAP/assets/107944091/7587eb24-403a-45ec-84ae-cc8687442c37">
@@ -45,7 +45,7 @@ ALTMAP (Access Log To heatMAP)
 | MUI                   | 5.15.19    |
 | Leaflet               | 1.9.4      |
 
-その他のパッケージのバージョンは package.json を参照してください
+その他のパッケージのバージョンは`package.json`を参照してください．
 
 
 ## ディレクトリ構成
@@ -81,28 +81,28 @@ ALTMAP (Access Log To heatMAP)
 
 
 ## 事前準備
-本プロジェクトでは，IPアドレスの情報を取得するために，IPinfo のAPIを使用しています
-このAPIを使用するには，アクセストークンを取得する必要があるため，[IPinfo公式サイト](https://ipinfo.io/)で取得してください
+本プロジェクトでは，IPアドレスの情報を取得するために，IPinfo のAPIを使用しています．
+このAPIを使用するには，アクセストークンを取得する必要があるため，[IPinfo公式サイト](https://ipinfo.io/)で取得してください．
 
 
 ## 開発環境構築
-1. Githubから本リポジトリをクローン
+1. Githubから本リポジトリをクローン．
 ```
 git clone https://github.com/Tomee0818/ALTMAP.git
 ```
 
-2. パッケージのインストール
+2. パッケージのインストール．
 ```
 npm install
 ```
 
-3. .envファイルの作成
+3. `.env.local`ファイルの作成．
 ```
 cp .env.local.sample .env.local
 ```
-この`.env.local`ファイル内の`REACT_APP_ACCESS_TOKEN`に[IPinfoの公式サイト](https://ipinfo.io/)で取得したアクセストークンを記入
+この`.env.local`ファイル内の`REACT_APP_ACCESS_TOKEN`に，[IPinfoの公式サイト](https://ipinfo.io/)で取得したアクセストークンを記入．
 
-4. プロジェクトを実行
+4. プロジェクトを実行．
 ```
 npm run start
 ```
